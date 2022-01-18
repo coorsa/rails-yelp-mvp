@@ -1,12 +1,22 @@
-
-
-<div>
-  <h2><%= @restaurant.name %></h2>
-  <p><%= @restaurant.address %></p>
-  <p><%= @restaurant.category %></p>
-  <p><%= @restaurant.phone_number %></p>
-</div>
-
-
-<%= link_to 'Back', restaurants_path %>
-<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div>
+          <h1><%= @restaurant.name %></h2>
+          <p><%= @restaurant.address %></p>
+          <p><%= @restaurant.category %></p>
+          <p><%= @restaurant.phone_number %></p>
+        </div>
+        <div>
+          <h2>Reviews</h2>
+            <ul class="list-group">
+              <% @restaurant.reviews.each do |review| %>
+                <li class="list-group-item"> Comment: <%= review.content %> Rating: <%= review.rating %></li>
+              <% end %>
+            </ul>
+        </div>
+      <%= link_to 'Back', restaurants_path %>
+      <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
+      </div>
+    </div>
+  </div>
