@@ -1,14 +1,23 @@
+<div class="container">
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand" href="#">YELP</a>
+    <%= link_to new_restaurant_path do %>
+            Add restaurant
+    <% end %>
+  </nav>
+</div>
 
-<%= link_to new_restaurant_path do %>
-        Add restaurant
-<% end %>
-
-
-<% @restaurants.each do |restaurant| %>
-  <div>
-    <h2><%= link_to restaurant.name, restaurant %></h2>
-    <p><%= restaurant.address %></p>
-    <p><%= restaurant.category %></p>
-    <p><%= restaurant.phone_number %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <% @restaurants.each do |restaurant| %>
+        <div>
+          <h2><%= link_to restaurant.name, restaurant %></h2>
+          <p><%= restaurant.address %></p>
+          <p><%= restaurant.category %></p>
+          <p><%= restaurant.phone_number %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
